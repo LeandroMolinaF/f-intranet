@@ -1,0 +1,34 @@
+.sidebar {
+  width: 270px;
+  min-height: 100vh;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  top: 56px;
+  left: 0;
+  z-index: 1040;
+  background-color: #fff;
+  z-index: 1050;
+}
+
+.sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+.main-content {
+  margin-left: 270px;
+  transition: margin-left 0.3s ease-in-out;
+  margin-top: 56px;
+}
+
+.main-content.expanded {
+  margin-left: 0;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  height: 56px; 
+}

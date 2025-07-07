@@ -1,0 +1,48 @@
+
+<div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center bg-light">
+  <div class="card shadow-lg border-0 rounded-4 d-flex flex-row overflow-hidden" style="max-width: 900px;">
+    <div class="p-5 bg-white" style="width: 50%;">
+      <div class="text-center mb-4">
+        <img src="https://www.uta.cl/web/site/artic/20121005/imag/foto_0120121005140154.jpg" alt="Logo UTA" style="height: 70px;">
+      </div>
+      <form  [formGroup]="loginForm" >
+        <div class="mb-3">
+          <label for="rut" class="form-label">Rut</label>
+          <input type="text" id="rut" class="form-control" placeholder="21.934.381-2"  formControlName="rut">
+        </div>
+        <div class="mb-1">
+          <label for="clave" class="form-label">Clave</label>
+          <div class="input-group">
+            <input type="password" id="clave" class="form-control" placeholder="********" formControlName="password">
+            <span class="input-group-text">
+              <i class="bi bi-eye-slash"></i>
+            </span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <a href="#" class="text-decoration-none small">¿Olvidó su clave?</a>
+        </div>
+        <button type="submit" class="btn btn-warning w-100 text-white fw-bold mb-3" (click)="login()">Iniciar sesión</button>
+        <div class="text-center text-muted small mb-3">o iniciar sesión con</div>
+        <button type="button" class="btn btn-danger w-100 fw-bold mb-2">Gmail Institucional</button>
+        <button type="button" class="btn btn-primary w-100 fw-bold"><span><img src="https://rutadelapyme.cl/web/@gobdigital-cl/gob.cl/src/img/clave-unica.png" alt="" style="width: 20px; margin-right: 5px;"></span>Iniciar sesión</button>
+      </form>
+    </div>
+
+    <div class="p-5 text-white" style="width: 50%; background-color: #212d4a;">
+      <h6 class="fw-bold">Plataformas de Apoyo a la Docencia</h6>
+      <div class="d-flex gap-3 my-3">
+        <img class="rounded-2" src="https://portal.uta.cl/assets/images/logo/logo_elearn.jpg" alt="eLearn" style="height: 35px;">
+        <img class="rounded-2" src="https://portal.uta.cl/assets/images/logo/logo_utamed.png" alt="UTAMed" style="height: 35px;">
+      </div>
+      <hr class="border-light">
+      <h6 class="fw-bold">Política de Privacidad</h6>
+      <p class="small">Conoce las políticas de privacidad del sitio web de la Universidad de Tarapacá. <a href="#" class="text-warning">Leer más</a></p>
+      <hr class="border-light">
+      <h6 class="fw-bold">Solicita Ayuda</h6>
+      <p class="small mb-1">Correo: <a href="#" class="text-warning">Ver Contactos</a></p>
+      <p class="small mb-0">Horario: <br>Lunes a Jueves 08:30AM - 05:30PM<br>Viernes 08:30AM - 04:30PM</p>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,7 @@
+body {
+  background-color: #f3f6fa;
+}
+
+input::placeholder {
+  font-size: 0.9rem;
+}

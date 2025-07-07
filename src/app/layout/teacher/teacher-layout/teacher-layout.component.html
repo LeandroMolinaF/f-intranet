@@ -1,0 +1,47 @@
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark px-3" style="background-color: #2a5298;">
+  <button class="btn btn-outline-light me-3" (click)="toggleSidebar()">
+    <i class="bi bi-list"></i>
+  </button>
+
+  <div class="d-flex align-items-center me-auto gap-3">
+    <i class="bi bi-house-door fs-5 text-white"></i>
+    <i class="bi bi-question-circle fs-5 text-white"></i>
+    <i class="bi bi-play-circle fs-5 text-white"></i>
+    <i class="bi bi-file-earmark fs-5 text-white"></i>
+  </div>
+
+  <div class="d-flex align-items-center gap-2">
+    <img src="https://portal.uta.cl/assets/images/logo/profile-hombre.jpeg" class="rounded-circle" style="height: 35px;">
+    <span class="text-white fw-bold">Leandro Josue Molina Ferreira</span>
+  </div>
+</nav>
+
+<!-- SIDEBAR 
+ 
+-->
+<div [class.collapsed]="!isSidebarOpen" class="sidebar bg-white border-end shadow-sm">
+  <div class="bg-gradient p-3 text-white" style="background: linear-gradient(to right, #e6ac20, #3d5480) !important;">
+    <img src="https://portal.uta.cl/assets/images/logo/utaHorizontal.png" style="height: 40px;">
+    <h5 class="text-warning mt-2 fw-bold justify-content-center">Intranet</h5>
+    <small>Leandro Molina Ferreira<br><a class="text-warning">leandro.molina.ferreira.alumnos.uta.cl</a></small>
+    <small class="d-block mt-2">Último Acceso 06-07-2025 01:39:15</small>
+  </div>
+
+  <ul class="list-unstyled p-3">
+    <li class="mb-2"><i class="bi bi-file-earmark me-2"></i> Documento Electrónico</li>
+    <li class="mb-2"><i class="bi bi-files me-2"></i> Documentos Secretaría</li>
+    <li class="text-uppercase text-warning small mt-3">Estudiante</li>
+    <li class="mb-2"><i class="bi bi-list me-2"></i> Registro Curricular</li>
+    <li class="mb-2"><i class="bi bi-building me-2"></i> Docencia Académica</li>
+    <li class="mb-2"><i class="bi bi-bookmark me-2"></i> Tutoría Académicas</li>
+    <li class="mb-2"><i class="bi bi-gift me-2"></i> Beneficios DAE</li>
+    <li class="mb-2"><i class="bi bi-person me-2"></i> Ayudante Alumno</li>
+    <li class="mb-2"><i class="bi bi-list-check me-2"></i> Estado Financiero</li>
+  </ul>
+</div>
+
+<!-- CONTENIDO -->
+<div class="main-content" [class.expanded]="!isSidebarOpen">
+  <router-outlet></router-outlet>
+</div>
