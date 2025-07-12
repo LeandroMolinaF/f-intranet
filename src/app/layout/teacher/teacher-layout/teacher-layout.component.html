@@ -25,15 +25,67 @@
     <img src="https://portal.uta.cl/assets/images/logo/utaHorizontal.png" style="height: 40px;">
     <h5 class="text-warning mt-2 fw-bold justify-content-center">Intranet</h5>
     <small>Leandro Molina Ferreira<br><a class="text-warning">leandro.molina.ferreira.alumnos.uta.cl</a></small>
-    <small class="d-block mt-2">Último Acceso 06-07-2025 01:39:15</small>
+    <small class="d-block mt-2">Último Acceso {{date | date:'dd-MM-yyyy HH:mm' }}</small>
   </div>
 
-  <ul class="list-unstyled p-3">
+  <ul class="list-unstyled p-3 accordion accordion-flush" id="accordionFlushExample">
     <li class="mb-2"><i class="bi bi-file-earmark me-2"></i> Documento Electrónico</li>
     <li class="mb-2"><i class="bi bi-files me-2"></i> Documentos Secretaría</li>
     <li class="text-uppercase text-warning small mt-3">Estudiante</li>
     <li class="mb-2"><i class="bi bi-list me-2"></i> Registro Curricular</li>
-    <li class="mb-2"><i class="bi bi-building me-2"></i> Docencia Académica</li>
+    <li class="accordion-item border-0">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed bg-white shadow-none px-0" type="button" data-bs-toggle="collapse" data-bs-target="#docencia" aria-expanded="false" aria-controls="docencia">
+          <i class="bi bi-building me-2"></i> Docencia Académica
+        </button>
+      </h2>
+      <div id="docencia" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body py-1 ps-4">
+
+          <!-- Semestre 2025 S1 -->
+          <div class="accordion accordion-flush" id="semestres-2025">
+            <div class="accordion-item border-0">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-white shadow-none px-0" type="button" data-bs-toggle="collapse" data-bs-target="#semestre-2025s1" aria-expanded="false" aria-controls="semestre-2025s1">
+                  2025 Semestre 1
+                </button>
+              </h2>
+              <div id="semestre-2025s1" class="accordion-collapse collapse" data-bs-parent="#semestres-2025">
+                <div class="accordion-body py-1 ps-4">
+
+                  <!-- Curso: Aplicaciones Distribuidas -->
+                  <div class="accordion accordion-flush" id="curso-appdist" *ngFor="let course of courses; let i = index">
+                    <div class="accordion-item border-0">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed bg-white shadow-none px-0 fw-semibold text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#appdist" aria-expanded="false" aria-controls="appdist">
+                          {{course.name}}
+                        </button>
+                      </h2>
+                      <div id="appdist" class="accordion-collapse collapse" data-bs-parent="#curso-appdist">
+                        <div class="accordion-body py-1 ps-4">
+                          <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-gear me-2"></i> Programa Asignatura</li>
+                            <li class="mb-2"><i class="bi bi-ui-checks-grid me-2"></i> Evaluaciones</li>
+                            <li class="mb-2"><i class="bi bi-journal-bookmark me-2" (click)="navigate(course.id)"></i> Clases</li>
+                            <li class="mb-2"><i class="bi bi-person-standing me-2"></i> Justificativo</li>
+                            <li class="mb-2"><i class="bi bi-chat-left-text me-2"></i> Mensajes</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Fin curso -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Fin semestre -->
+
+        </div>
+      </div>
+    </li>
+
     <li class="mb-2"><i class="bi bi-bookmark me-2"></i> Tutoría Académicas</li>
     <li class="mb-2"><i class="bi bi-gift me-2"></i> Beneficios DAE</li>
     <li class="mb-2"><i class="bi bi-person me-2"></i> Ayudante Alumno</li>

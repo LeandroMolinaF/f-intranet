@@ -1,5 +1,5 @@
 .sidebar {
-  width: 270px;
+  width: 300px;
   min-height: 100vh;
   transition: all 0.3s ease-in-out;
   position: fixed;
@@ -7,7 +7,9 @@
   left: 0;
   z-index: 1040;
   background-color: #fff;
-  z-index: 1050;
+  height: calc(100vh - 56px); /* 100% altura de viewport menos navbar */
+  overflow-y: auto; /* Activa el scroll vertical */
+  scrollbar-width: thin; /* para Firefox */
 }
 
 .sidebar.collapsed {
@@ -15,7 +17,7 @@
 }
 
 .main-content {
-  margin-left: 270px;
+  margin-left: 300px;
   transition: margin-left 0.3s ease-in-out;
   margin-top: 56px;
 }
@@ -31,4 +33,17 @@
   right: 0;
   z-index: 1050;
   height: 56px; 
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.sidebar.collapsed {
+  transform: translateX(-100%);
 }

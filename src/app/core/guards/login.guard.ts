@@ -1,4 +1,3 @@
-// login.guard.ts
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -15,7 +14,6 @@ export class LoginGuard implements CanActivate {
 
   canActivate(): boolean {
     if (this.authService.isLoggedIn()) {
-      console.log('estalogeado');
       this.router.navigate(['teacher/home']);
       return false;
     }

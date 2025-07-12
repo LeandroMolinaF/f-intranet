@@ -43,7 +43,7 @@ export class AuthService {
       const currentTime = Math.floor(Date.now() / 1000);
       return decodedToken.exp < currentTime;
     } catch (error) {
-      console.log(error);
+      console.error(error);
       return true;
     }
   }

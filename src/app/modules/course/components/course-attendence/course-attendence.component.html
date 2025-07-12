@@ -1,0 +1,44 @@
+<!-- Modal -->
+<div class="modal fade" id="attendanceModal" tabindex="-1" aria-labelledby="attendanceModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen-md-down modal-dialog-scrollable">
+    <div class="modal-content"> 
+      <div class="modal-header bg-primary text-white" *ngIf="selectedClass != null">
+        <h5 class="modal-title" id="attendanceModalLabel">Tomar Asistencia de la clase {{selectedClass.id}}</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body" *ngIf="selectedClass != null">
+        <div class="table-responsive">
+          <table class="table table-hover align-middle">
+            <thead class="custom-thead">
+              <tr>
+                <th>#</th>
+                <th>RUT</th>
+                <th>Nombre Completo</th>
+                <th>Asistencia</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let student of asistenciaEditable; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ student.rut }}</td>
+                <td>{{ student.fullName }}</td>
+                <td>
+                  <input type="checkbox" class="form-check-input" [(ngModel)]="student.status"/>
+                </td>
+              </tr>
+              <tr *ngIf="selectedClass.attendance?.length === 0">
+                <td colspan="4" class="text-center text-muted">No hay estudiantes registrados.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" (click)="saveAttendance()" data-bs-dismiss="modal">Guardar Asistencia</button>
+      </div>
+    </div>
+  </div>
+</div>

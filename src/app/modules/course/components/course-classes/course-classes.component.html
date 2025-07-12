@@ -1,0 +1,50 @@
+<div class="container-fluid" style="margin-top: 60px;">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="fw-bold">Listado de Clases</h4>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createClassModal">
+      <i class="bi bi-plus-circle"></i> Agregar Clase
+    </button>
+  </div>
+
+  <div class="table-responsive shadow-sm border rounded">
+    <table class="table table-bordered table-striped align-middle">
+      <thead class="custom-thead">
+        <tr>
+          <th class="text-center">N°</th>
+          <th>Fecha</th>
+          <th>Contenidos</th>
+          <th>Recursos</th>
+          <th class="text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let class of classes; let i = index">
+          <td class="text-center">{{ i + 1 }}</td>
+          <td>{{ class.date | date:'dd-MM-yyyy HH:mm' }}</td>
+          <td>{{ class.title }}</td>
+          <td>
+            <ul class="mb-0 ps-3">
+              <li *ngFor="let recurso of class.recursos">
+                <a href="{{ recurso.url }}" target="_blank">{{ recurso.nombre }}</a>
+              </li>
+            </ul>
+          </td>
+          <td class="text-center">
+            <button class="btn btn-sm btn-success me-1" data-bs-toggle="modal" data-bs-target="#attendanceModal" (click)="selectClass(class.id)">
+              <i class="bi bi-person-check"></i>
+            </button>
+            <button class="btn btn-sm btn-danger" (click)="onDeleteClass(class)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="classes.length === 0">
+          <td colspan="5" class="text-center text-muted">No hay clases registradas.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+ <app-course-attendence [selectedClass]="selectedClass" (attendenceSave)="attendenceSave($event)"></app-course-attendence>
+ <app-create-class [courseId]="courseId" (classCreated)="onAddClass($event)"></app-create-class>
